@@ -1,0 +1,33 @@
+## Node.js Blog Projcet
+1. 创建 node-blog-demo 项目
+2. 创建 .gitignore
+	2.1 忽略 .idea
+	2.2 忽略 node_modules
+3. 创建 README.md 
+4. 创建 package.json，根目录下执行 cmd: npm init，修改 main: app.js
+5. 创建 /app.js 文件
+6. 安装 modules: express，根目录下执行命令 cmd: cnmp i -S express
+7. 修改 app.js 文件，创建简单的服务器
+8. 启动服务，根目录下 cmd: supervisor app[.js]
+9. 配置首页的路由，app.get('/', (req, res){console.log('...')});
+10. 创建目录 views
+11. 下载 https://code.getmdl.io/1.3.0/mdl-template-blog.zip MDL Blog 前端模板，解压放入 views，public 相关目录
+12. 创建首页 index.html，含有注册、登录的链接，样式调整
+13. 创建文件 views/sign-up.html，views/sign-in.html，含有登录和注册的表单，样式调整
+14. 创建 sql/db.sql，建库 blog，建表 user
+15. 创建 routes/index.js、routes/user.js
+	15.1 index.js 中创建首页和注册登录页链接的路由
+	15.2 user.js 中创建用户注册和登录请求的路由
+16. 引入并配置 session 模块，安装 connect-flash 模块，重新做消息提示，页面跳转改为重定向	
+17. 使用 EJS 的 <%- include(path_to_file)%> 引入通用模板组件
+18. 图片上传
+	18.1 安装 express-fileupload 模块
+	18.2 配置中间件 app.use(upload()); 
+	18.3 修改表单 <form ... enctype="multipart/form-data">; 
+	18.4 获取上传的文件：req.files.avatar
+	18.5 文件保存到本地：req.files.avatar.mv(path...);
+19. 发布博文
+	19.1 建表 blog.post id / title / content / time / userId(FK)
+	19.2 创建页面 post.html，完善表单
+	19.3 创建路由 post.js app.post('/post/create',...); 处理发布博文请求
+	19.4 创建路由 post.js app.get('/post/list',...); 处理查询博文请求
